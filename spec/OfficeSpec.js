@@ -15,11 +15,10 @@ describe('Office', function() {
     office.addRoom(room);
     expect(office.ShowAllRooms(room)).toEqual([room, room])
   });
-  // it ('shows available meeting room', function () {
-  //   room.getAvailability();
-  //   expect(office.ShowAllRooms(room)).toEqual(0)
-
-
-
+  it('only shows available rooms', function() {
+    office.addRoom(room);
+    office.addRoom(room);
+    room.enter();
+    expect(office.showAvailableRooms(room)).toEqual('Rooms available')
   });
 });

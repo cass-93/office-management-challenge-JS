@@ -1,6 +1,7 @@
-class Office {
+class Office extends MeetingRoom {
 
   constructor() {
+    super();
     this.addedrooms = [];
   }
 
@@ -10,4 +11,12 @@ class Office {
   ShowAllRooms(room) {
     return this.addedrooms
   }
-}
+  showAvailableRooms(room) {
+    if(this.addedrooms.length > this.occupied) {
+      return 'Rooms available'
+    }
+    else {
+      return 'Rooms occupied'
+    }
+  }
+};
